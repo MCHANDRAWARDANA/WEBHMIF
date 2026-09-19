@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
+
+/* =========================================================
+   THEME
+========================================================= */
+
+.font-mea-culpa {
+  font-family: "Mea Culpa", cursive;
+}
+
+@theme {
+
+  --color-astravia-yellow: #FEE83C;
+  --color-astravia-white: #FEFFFF;
+  --color-astravia-blue: #839FFF;
+  --color-astravia-cream: #F0F0E7;
+  --color-astravia-orange: #FB5928;
+  --color-astravia-pink: #F15891;
+  --color-astravia-lavender: #F1BAF4;
+  --color-astravia-lime: #DBDF57;
+  --color-astravia-green: #0D4640;
+
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Barlow Condensed", sans-serif;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+  font-family: "Barlow Condensed", sans-serif;
+  color: #111111;
+  background: #F0F0E7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #F0F0E7;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D4640;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FEE83C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #DBDF57;
+}
+
+
+/* =========================================================
+   DOT PATTERN
+========================================================= */
+
+.dot-pattern {
+  background-color: #F0F0E7;
+
+  background-image: radial-gradient(
+    rgba(13, 70, 64, 0.16) 1px,
+    transparent 1px
+  );
+
+  background-size: 7px 7px;
+}
+
+
+/* =========================================================
+   SECTION CONTAINER
+========================================================= */
+
+.section-container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+@media (min-width: 768px) {
+
+  .section-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+::selection {
+  background: #FEE83C;
+  color: #000000;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   LINK / BUTTON
+========================================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   HIDE HORIZONTAL SCROLLBAR
+========================================================= */
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
