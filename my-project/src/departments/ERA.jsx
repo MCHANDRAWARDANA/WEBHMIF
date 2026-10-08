@@ -1,86 +1,86 @@
-    import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-    const department = {
-    code: "ERA",
-    name: "External Relations & Affairs",
-    description:
-        "Mengenal lebih dekat gagasan, arah gerak, dan nilai dasar yang kami bawa dalam satu periode kepengurusan.",
-    image: "/departments/era/ERA.jpg",
-    };
+const department = {
+  code: "ERA",
+  name: "External Relations & Affairs",
+  description:
+    "Mengenal lebih dekat gagasan, arah gerak, dan nilai dasar yang kami bawa dalam satu periode kepengurusan.",
+  image: "/departments/era/ERA.jpg",
+};
 
-    const members = [
-    {
-        name: "DAMANIK YOHANES GEOVAN ONDOVA",
-        role: "Staff of Department",
-        image: "/departments/era/anggotaera1.jpg",
-    },
-    {
-        name: "RAYHAN AHZA WIDAYA MUKTI",
-        role: "Staff of Department",
-        image: "/departments/era/anggotaera3.jpg",
-    },
-    {
-        name: "AIS NURHANIFAH",
-        role: "Staff of Department",
-        image: "/departments/era/anggotaera4.jpg",
-    },
-    {
-        name: "ANGELIA LORIA TIMBA",
-        role: "Staff of Department",
-        image: "/departments/era/anggotaera5.jpg",
-    },
-    {
-        name: "ILHAM SULISTYO RIZKY",
-        role: "Staff of Department",
-        image: "/departments/era/anggotaera6.jpg",
-    },
-    {
-        name: "RAKHMAT PRATAMA",
-        role: "Staff of Department",
-        image: "/departments/era/anggotaera7.jpg",
-    },
-    {
-        name: "ELFAN ENDRIYANTO",
-        role: "Staff of Department",
-        image: "/departments/era/anggotaera8.jpg",
-    },
-    ];
+const members = [
+  {
+    name: "DAMANIK YOHANES GEOVAN ONDOVA",
+    role: "Koordinator Divisi",
+    image: "/departments/era/anggotaera1.jpg",
+  },
+  {
+    name: "RAYHAN AHZA WIDAYA MUKTI",
+    role: "Staff of Department",
+    image: "/departments/era/anggotaera3.jpg",
+  },
+  {
+    name: "AIS NURHANIFAH",
+    role: "Staff of Department",
+    image: "/departments/era/anggotaera4.jpg",
+  },
+  {
+    name: "ANGELIA LORIA TIMBA",
+    role: "Staff of Department",
+    image: "/departments/era/anggotaera5.jpg",
+  },
+  {
+    name: "ILHAM SULISTYO RIZKY",
+    role: "Staff of Department",
+    image: "/departments/era/anggotaera6.jpg",
+  },
+  {
+    name: "RAKHMAT PRATAMA",
+    role: "Staff of Department",
+    image: "/departments/era/anggotaera7.jpg",
+  },
+  {
+    name: "ELFAN ENDRIYANTO",
+    role: "Staff of Department",
+    image: "/departments/era/anggotaera8.jpg",
+  },
+];
 
-    function BackIcon() {
-    return (
-        <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        >
-        <path
-            d="M15 5L8 12L15 19"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
-        </svg>
-    );
+function BackIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M15 5L8 12L15 19"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default function DepartmentDetail() {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/departemen");
     }
+  };
 
-    export default function DepartmentDetail() {
-    const navigate = useNavigate();
-
-    const handleBack = () => {
-        if (window.history.length > 1) {
-        navigate(-1);
-        } else {
-        navigate("/departemen");
-        }
-    };
-
-    return (
-        <main className="department-detail-page">
-        <style>{`
+  return (
+    <main className="department-detail-page">
+      <style>{`
             @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Mea+Culpa&family=Playfair+Display:wght@400;500;600&display=swap");
 
             .department-detail-page {
@@ -289,28 +289,31 @@
             background: transparent;
             }
 
-            .department-detail-member-image-wrap {
-            width: 112px;
-            height: 112px;
+                    .department-detail-member-image-wrap {
+          width: 112px;
+          aspect-ratio: 3 / 4;
+          height: auto;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-            overflow: hidden;
-            background: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            }
+          overflow: hidden;
+          background: transparent;
+          border: none;
+        }
 
-            .department-detail-member-image {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-            background: #fff;
-            image-rendering: auto;
-            }
+                    .department-detail-member-image {
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+          object-position: center;
+          background: transparent;
+          image-rendering: auto;
+        }
 
             .department-detail-member-content {
             min-width: 0;
@@ -372,7 +375,6 @@
 
             .department-detail-member-image-wrap {
                 width: 96px;
-                height: 96px;
             }
 
             .department-detail-member-content {
@@ -436,8 +438,9 @@
 
             .department-detail-member-image-wrap {
                 width: 88px;
-                height: 88px;
-            }
+            aspect-ratio: 3 / 4;
+            height: auto;
+          }
 
             .department-detail-member-content {
                 min-height: 88px;
@@ -506,8 +509,9 @@
 
             .department-detail-member-image-wrap {
                 width: 98px;
-                height: 98px;
-            }
+            aspect-ratio: 3 / 4;
+            height: auto;
+          }
 
             .department-detail-member-content {
                 min-height: 98px;
@@ -526,73 +530,73 @@
             }
         `}</style>
 
-        <div className="department-detail-shell">
-            {/* FOTO BERSAMA */}
-            <section className="department-detail-hero">
-            <img
-                src={department.image}
-                alt={`Foto bersama ${department.name}`}
-                className="department-detail-hero-image"
-            />
+      <div className="department-detail-shell">
+        {/* FOTO BERSAMA */}
+        <section className="department-detail-hero">
+          <img
+            src={department.image}
+            alt={`Foto bersama ${department.name}`}
+            className="department-detail-hero-image"
+          />
 
-            {/* BUTTON KEMBALI */}
-            <button
-                type="button"
-                className="department-detail-back"
-                onClick={handleBack}
-                aria-label="Kembali ke halaman sebelumnya"
-            >
-                <BackIcon />
-            </button>
+          {/* BUTTON KEMBALI */}
+          <button
+            type="button"
+            className="department-detail-back"
+            onClick={handleBack}
+            aria-label="Kembali ke halaman sebelumnya"
+          >
+            <BackIcon />
+          </button>
 
-            <div className="department-detail-hero-info">
-                <div className="department-detail-badge">{department.code}</div>
+          <div className="department-detail-hero-info">
+            <div className="department-detail-badge">{department.code}</div>
 
-                <p className="department-detail-description">
-                {department.description}
-                </p>
-            </div>
+            <p className="department-detail-description">
+              {department.description}
+            </p>
+          </div>
 
-            <h1 className="department-detail-title">{department.name}</h1>
-            </section>
+          <h1 className="department-detail-title">{department.name}</h1>
+        </section>
 
-            {/* DAFTAR ANGGOTA */}
-            <section className="department-detail-members">
-            <div className="department-detail-members-grid">
-                {members.length > 0 ? (
-                members.map((member, index) => (
-                    <article
-                    key={`${member.name}-${index}`}
-                    className="department-detail-member"
-                    >
-                    <div className="department-detail-member-image-wrap">
-                        <img
-                        src={member.image}
-                        alt={member.name}
-                        className="department-detail-member-image"
-                        loading="lazy"
-                        />
-                    </div>
+        {/* DAFTAR ANGGOTA */}
+        <section className="department-detail-members">
+          <div className="department-detail-members-grid">
+            {members.length > 0 ? (
+              members.map((member, index) => (
+                <article
+                  key={`${member.name}-${index}`}
+                  className="department-detail-member"
+                >
+                  <div className="department-detail-member-image-wrap">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="department-detail-member-image"
+                      loading="lazy"
+                    />
+                  </div>
 
-                    <div className="department-detail-member-content">
-                        <h3 className="department-detail-member-name">
-                        {member.name}
-                        </h3>
+                  <div className="department-detail-member-content">
+                    <h3 className="department-detail-member-name">
+                      {member.name}
+                    </h3>
 
-                        <span className="department-detail-member-role">
-                        {member.role}
-                        </span>
-                    </div>
-                    </article>
-                ))
-                ) : (
-                <div className="department-detail-empty">
-                    Belum ada data anggota department.
-                </div>
-                )}
-            </div>
-            </section>
-        </div>
-        </main>
-    );
-    }
+                    <span className="department-detail-member-role">
+                      {member.role}
+                    </span>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <div className="department-detail-empty">
+                Belum ada data anggota department.
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+}

@@ -13,7 +13,7 @@ const department = {
 const members = [
   {
     name: "SYAHLA KHEISYYA MAYASTRIA",
-    role: "Staff of Department",
+    role: "Koordinator Divisi",
     image: "/departments/fed/anggotafed1.jpg",
   },
   {
@@ -292,26 +292,29 @@ export default function DepartmentDetailFED() {
           background: transparent;
         }
 
-        .department-detail-member-image-wrap {
+                .department-detail-member-image-wrap {
           width: 112px;
-          height: 112px;
+          aspect-ratio: 3 / 4;
+          height: auto;
 
           display: flex;
           align-items: center;
           justify-content: center;
 
           overflow: hidden;
-          background: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.18);
+          background: transparent;
+          border: none;
         }
 
-        .department-detail-member-image {
+                .department-detail-member-image {
           display: block;
           width: 100%;
           height: 100%;
+          max-width: 100%;
+          max-height: 100%;
           object-fit: contain;
           object-position: center;
-          background: #fff;
+          background: transparent;
           image-rendering: auto;
         }
 
@@ -375,7 +378,6 @@ export default function DepartmentDetailFED() {
 
           .department-detail-member-image-wrap {
             width: 96px;
-            height: 96px;
           }
 
           .department-detail-member-content {
@@ -453,7 +455,8 @@ export default function DepartmentDetailFED() {
 
           .department-detail-member-image-wrap {
             width: 88px;
-            height: 88px;
+            aspect-ratio: 3 / 4;
+            height: auto;
           }
 
           .department-detail-member-content {
@@ -524,7 +527,8 @@ export default function DepartmentDetailFED() {
 
           .department-detail-member-image-wrap {
             width: 98px;
-            height: 98px;
+            aspect-ratio: 3 / 4;
+            height: auto;
           }
 
           .department-detail-member-content {

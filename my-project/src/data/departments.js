@@ -35,10 +35,4 @@ export const departments = [
     name: "Fundamental Education Development",
     color: "#F15891",
   },
-  {
-    id: "med",
-    shortName: "MED",
-    name: "Media & Documentation",
-    color: "#DBDF57",
-  },
 ];

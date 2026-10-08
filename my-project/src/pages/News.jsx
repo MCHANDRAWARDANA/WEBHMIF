@@ -220,22 +220,6 @@ export default function News() {
           scroll-behavior: smooth;
         }
 
-        body {
-          margin: 0;
-          padding: 0;
-
-          background: var(--news-black);
-
-          color: #ffffff;
-
-          overflow-x: hidden;
-        }
-
-        button,
-        select {
-          font-family: inherit;
-        }
-
 
         /* =========================================================
            PAGE

@@ -125,106 +125,145 @@ export default function About() {
           .about-marquee {
             animation: aboutMarquee 28s linear infinite;
           }
+
+          /* HERO — disamakan dengan layout hero Berita */
+          .about-hero {
+            width: 100%;
+            height: calc(100svh - 144px);
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+          }
+
+          .about-hero-content {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          }
+
+          .about-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            height: 30px;
+            padding: 0 16px;
+            border: 1px solid #111111;
+            border-radius: 999px;
+            background: #fee83c;
+            color: #111111;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 12px;
+          }
+
+          .about-hero-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(50px, 7vw, 96px);
+            line-height: 0.82;
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            color: #111111;
+          }
+
+          .about-hero-script {
+            font-family: "Mea Culpa", cursive;
+            font-size: 1.08em;
+            font-style: normal;
+          }
+
+          .about-hero-description {
+            max-width: 620px;
+            margin-top: 18px;
+            margin-bottom: 20px;
+            color: rgba(0, 0, 0, 0.8);
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 14px;
+            line-height: 1.35;
+            text-align: center;
+          }
+
+          .about-hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #111111;
+            background: #000000;
+            color: #fee83c;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+          }
+
+          .about-hero-button:hover {
+            background: #fee83c;
+            color: #111111;
+            transform: translateY(-2px);
+          }
+
+          @media (max-width: 900px) {
+            .about-hero {
+              height: calc(100svh - 96px);
+              min-height: 620px;
+              padding: 24px 18px;
+            }
+
+            .about-hero-title {
+              font-size: clamp(46px, 13vw, 72px);
+              line-height: 0.88;
+            }
+
+            .about-hero-description {
+              max-width: 340px;
+              font-size: 13px;
+              line-height: 1.35;
+            }
+          }
+
+          @media (max-width: 400px) {
+            .about-hero-title {
+              font-size: 44px;
+            }
+          }
         `}
       </style>
 
       {/* =====================================================
-          ABOUT HERO - FULL VIEWPORT
+          ABOUT HERO
       ====================================================== */}
-      <section
-        className="
-          dot-pattern
-          h-[calc(100svh-96px)]
-          md:h-[calc(100svh-144px)]
-          min-h-[620px]
-          flex
-          items-center
-          justify-center
-          px-6
-        "
-      >
+      <section className="dot-pattern about-hero">
         <div
           ref={addReveal}
-          className="
-            about-reveal
-            text-center
-            flex
-            flex-col
-            items-center
-            justify-center
-            max-w-3xl
-          "
+          className="about-hero-content about-reveal"
         >
-          {/* Badge */}
-          <span
-            className="
-              inline-flex
-              items-center
-              justify-center
-              bg-astravia-yellow
-              border
-              border-black
-              rounded-full
-              px-6
-              py-1.5
-              text-xs
-              md:text-sm
-              font-medium
-            "
-          >
-            Tentang Kami
-          </span>
+          <div className="about-hero-badge">Tentang Kami</div>
 
-          {/* ABOUT US */}
-          <h1
-            className="
-              font-script
-              text-7xl
-              sm:text-8xl
-              md:text-[120px]
-              lg:text-[145px]
-              leading-[0.8]
-              mt-3
-            "
-          >
-            About Us
+          <h1 className="about-hero-title">
+            <span className="about-hero-script">About</span> Us
           </h1>
 
-          {/* Description */}
-          <p
-            className="
-              mt-6
-              max-w-xl
-              text-sm
-              md:text-base
-              leading-relaxed
-              text-black/80
-            "
-          >
+          <p className="about-hero-description">
             Mengenal lebih dekat sejarah, arah gerak, dan nilai dasar yang kami
             bawa dalam setiap periode kepengurusan.
           </p>
 
-          {/* Button */}
           <a
             href="#visi-misi"
-            className="
-              mt-7
-              inline-flex
-              items-center
-              justify-center
-              bg-black
-              text-white
-              px-6
-              py-2.5
-              rounded-full
-              text-sm
-              border
-              border-black
-              hover:bg-astravia-yellow
-              hover:text-black
-              transition-all
-            "
+            className="about-hero-button"
           >
             Pelajari Lebih Lanjut ↓
           </a>

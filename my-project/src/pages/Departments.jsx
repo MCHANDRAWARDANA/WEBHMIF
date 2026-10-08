@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 const departments = [
   {
     name: "CCO",
-    description: "Content Creation & Outreach",
+    description: "Creative Content & Outreach",
     color: "#FEE83C",
     path: "/departemen/cco",
   },
   {
     name: "HCCB",
-    description: "Human Capital & Capacity Building",
+    description: "Human Capital & Character Building",
     color: "#F1BAF4",
     path: "/departemen/hccb",
   },
@@ -21,19 +21,19 @@ const departments = [
   },
   {
     name: "TDI",
-    description: "Technology & Digital Innovation",
+    description: "Talent Development & Innovation",
     color: "#839FFF",
     path: "/departemen/tdi",
   },
   {
     name: "FED",
-    description: "Finance & Entrepreneurship Department",
+    description: "Finance & Enterprise Development",
     color: "#F15891",
     path: "/departemen/fed",
   },
   {
     name: "HID",
-    description: "Humanity, Information & Development",
+    description: "Humanity Impact & Development",
     color: "#DBDF57",
     path: "/departemen/hid",
   },
@@ -61,6 +61,7 @@ export default function Departments() {
         .departments-page {
           width: 100%;
           min-height: 100vh;
+          padding-top: 144px;
           background: #000000;
           color: #ffffff;
           overflow-x: hidden;
@@ -74,136 +75,94 @@ export default function Departments() {
           width: 100%;
           height: calc(100svh - 144px);
           min-height: 620px;
-
           display: flex;
           align-items: center;
           justify-content: center;
-
-          padding: 32px 24px;
-
+          padding: 24px;
           background-color: #F0F0E7;
-
-          background-image:
-            radial-gradient(
-              rgba(13, 70, 64, 0.16) 0.7px,
-              transparent 0.7px
-            );
-
+          background-image: radial-gradient(
+            rgba(13, 70, 64, 0.16) 0.7px,
+            transparent 0.7px
+          );
           background-size: 7px 7px;
         }
 
         .departments-hero-content {
           width: 100%;
-          max-width: 1100px;
-
+          max-width: 900px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-
           text-align: center;
         }
-
-        /* =========================================================
-           HERO BADGE
-        ========================================================= */
 
         .departments-badge {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-
-          min-width: 70px;
+          min-width: 60px;
           height: 30px;
-
           padding: 0 16px;
-
           border: 1px solid #111111;
           border-radius: 999px;
-
           background: #FEE83C;
           color: #111111;
-
           font-family: "Barlow Condensed", sans-serif;
           font-size: 13px;
           font-weight: 500;
           line-height: 1;
-
-          margin-bottom: 18px;
+          margin-bottom: 12px;
         }
-
-        /* =========================================================
-           HERO TITLE
-        ========================================================= */
 
         .departments-hero-title {
           margin: 0;
-
-          font-family: "Mea Culpa", cursive;
-          font-size: 82.56px;
+          font-family: "Playfair Display", serif;
+          font-size: clamp(50px, 7vw, 96px);
+          line-height: 0.82;
           font-weight: 400;
-          font-style: normal;
-          line-height: 0.8;
-          letter-spacing: 0;
-
+          letter-spacing: -0.04em;
           text-align: center;
-
           color: #111111;
         }
 
-        /* =========================================================
-           HERO DESCRIPTION
-        ========================================================= */
+        .departments-hero-script {
+          font-family: "Mea Culpa", cursive;
+          font-size: 1.08em;
+          font-style: normal;
+        }
 
         .departments-hero-description {
           max-width: 620px;
-
-          margin: 22px 0 18px;
-
-          color: rgba(0, 0, 0, 0.82);
-
+          margin-top: 18px;
+          margin-bottom: 20px;
+          color: rgba(0, 0, 0, 0.8);
           font-family: "Barlow Condensed", sans-serif;
           font-size: 14px;
           line-height: 1.35;
-
           text-align: center;
         }
-
-        /* =========================================================
-           HERO BUTTON
-        ========================================================= */
 
         .departments-hero-button {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-
           border: 1px solid #111111;
-
           background: #000000;
           color: #FEE83C;
-
           padding: 9px 18px;
-
           border-radius: 999px;
-
           text-decoration: none;
-
           font-family: "Barlow Condensed", sans-serif;
           font-size: 13px;
           font-weight: 500;
           line-height: 1;
-
-          transition:
-            transform 0.2s ease,
-            background 0.2s ease,
-            color 0.2s ease;
+          transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
         }
 
         .departments-hero-button:hover {
           background: #FEE83C;
           color: #111111;
-
           transform: translateY(-2px);
         }
 
@@ -542,6 +501,10 @@ export default function Departments() {
         ========================================================= */
 
         @media (max-width: 900px) {
+          .departments-page {
+            padding-top: 96px;
+          }
+
           .departments-executive {
             --header-h: 96px;
 
@@ -554,12 +517,14 @@ export default function Departments() {
           }
 
           .departments-hero-title {
-            font-size:
-              clamp(
-                60px,
-                9vw,
-                82.56px
-              );
+            font-size: clamp(46px, 13vw, 72px);
+            line-height: 0.88;
+          }
+
+          .departments-hero-description {
+            max-width: 340px;
+            font-size: 13px;
+            line-height: 1.35;
           }
         }
 
@@ -577,19 +542,14 @@ export default function Departments() {
           }
 
           .departments-hero-title {
-            font-size:
-              clamp(
-                48px,
-                14vw,
-                68px
-              );
+            font-size: clamp(46px, 13vw, 72px);
+            line-height: 0.88;
           }
 
           .departments-hero-description {
-            max-width: 350px;
-
+            max-width: 340px;
             margin-top: 18px;
-
+            margin-bottom: 20px;
             font-size: 13px;
           }
 
@@ -627,9 +587,9 @@ export default function Departments() {
            SMALL MOBILE
         ========================================================= */
 
-        @media (max-width: 420px) {
+        @media (max-width: 400px) {
           .departments-hero-title {
-            font-size: 45px;
+            font-size: 44px;
           }
         }
 
@@ -638,12 +598,14 @@ export default function Departments() {
       {/* =========================================================
           HERO
       ========================================================= */}
-
       <section className="departments-hero">
         <div className="departments-hero-content">
           <div className="departments-badge">Departemen</div>
 
-          <h1 className="departments-hero-title">Susunan Pengurus Astravia</h1>
+          <h1 className="departments-hero-title">
+            <span className="departments-hero-script">Susunan Pengurus</span>{" "}
+            Astravia
+          </h1>
 
           <p className="departments-hero-description">
             Dibalik setiap program kerja yang sukses, ada tim yang bekerja keras

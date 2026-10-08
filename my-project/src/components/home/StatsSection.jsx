@@ -2,7 +2,7 @@ import ScrollReveal from "../common/ScrollReveal";
 
 const stats = [
   {
-    value: "07",
+    value: "06",
     title: "Divisi",
     description:
       "HMIF (Himpunan Mahasiswa Teknik Informatika) Telkom University Purwokerto hadir sebagai wadah berkembang, berinovasi, dan berkarya bagi seluruh mahasiswa Teknik Informatika.",
