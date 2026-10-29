@@ -125,12 +125,12 @@
 .department-detail-members-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 28px 24px;
+  gap: 32px;
 }
 
 .department-detail-member {
   display: grid;
-  grid-template-columns: 104px minmax(0, 1fr);
+  grid-template-columns: clamp(112px, 32vw, 144px) minmax(0, 1fr);
   align-items: center;
   gap: 16px;
   min-width: 0;
@@ -155,22 +155,38 @@
 .department-detail-member-name {
   margin: 0 0 12px;
   font-family: var(--font-display);
-  font-size: clamp(17px, 1.6vw, 20px);
-  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 500;
   line-height: 1.25;
   overflow-wrap: break-word;
 }
 
-@media (min-width: 640px) {
+.department-detail-member-role {
+  padding: 6px 14px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
   .department-detail-members-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .department-detail-member {
+    grid-template-columns: clamp(160px, 15vw, 184px) minmax(0, 1fr);
+    gap: 20px;
   }
 }
 
 @media (min-width: 1024px) {
   .department-detail-members-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 36px;
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+
+  .department-detail-member {
+    grid-template-columns: clamp(120px, 10vw, 144px) minmax(0, 1fr);
+    gap: 16px;
   }
 }
 
