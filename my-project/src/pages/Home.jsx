@@ -6,12 +6,12 @@ import FAQSection from "../components/home/FAQSection";
 
 export default function Home() {
   return (
-    <main>
+    <div className="home-page">
       <HeroSection />
       <AboutPreviewSection />
       <StatsSection />
       <CabinetSection />
       <FAQSection />
-    </main>
+    </div>
   );
 }

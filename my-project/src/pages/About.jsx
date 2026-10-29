@@ -1,36 +1,6 @@
-import { useEffect, useRef } from "react";
+import "./About.css";
 
 export default function About() {
-  const revealRefs = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("about-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      },
-    );
-
-    revealRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addReveal = (el) => {
-    if (el && !revealRefs.current.includes(el)) {
-      revealRefs.current.push(el);
-    }
-  };
-
   const missions = [
     "Menguatkan anggota HMIF dengan memperkuat kolaborasi secara internal berupa komunikasi, solidaritas, dan partisipasi, serta mengembangkan hubungan eksternal dalam bidang yang relevan untuk mengenalkan HMIF kepada pihak terkait.",
     "Menjalankan roda kepemimpinan HMIF dengan rasa kebersamaan, kebijaksanaan, dan keberanian berpendapat yang sejalan dengan arah organisasi.",
@@ -77,183 +47,20 @@ export default function About() {
   ];
 
   return (
-    <div className="bg-astravia-cream text-black overflow-hidden pt-[96px] md:pt-[144px]">
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
-          .font-display {
-            font-family: "Playfair Display", serif;
-          }
-
-          .font-script {
-            font-family: "Mea Culpa", cursive;
-          }
-
-          .dot-pattern {
-            background-color: #f4f2e8;
-            background-image: radial-gradient(
-              rgba(0, 0, 0, 0.15) 0.65px,
-              transparent 0.65px
-            );
-            background-size: 5px 5px;
-          }
-
-          .about-reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition:
-              opacity 0.8s ease,
-              transform 0.8s ease;
-          }
-
-          .about-visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-
-          @keyframes aboutMarquee {
-            from {
-              transform: translateX(0);
-            }
-
-            to {
-              transform: translateX(-50%);
-            }
-          }
-
-          .about-marquee {
-            animation: aboutMarquee 28s linear infinite;
-          }
-
-          /* HERO — disamakan dengan layout hero Berita */
-          .about-hero {
-            width: 100%;
-            height: calc(100svh - 144px);
-            min-height: 620px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-          }
-
-          .about-hero-content {
-            width: 100%;
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-          }
-
-          .about-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 60px;
-            height: 30px;
-            padding: 0 16px;
-            border: 1px solid #111111;
-            border-radius: 999px;
-            background: #fee83c;
-            color: #111111;
-            font-family: "Barlow Condensed", sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 1;
-            margin-bottom: 12px;
-          }
-
-          .about-hero-title {
-            margin: 0;
-            font-family: "Playfair Display", serif;
-            font-size: clamp(50px, 7vw, 96px);
-            line-height: 0.82;
-            font-weight: 400;
-            letter-spacing: -0.04em;
-            color: #111111;
-          }
-
-          .about-hero-script {
-            font-family: "Mea Culpa", cursive;
-            font-size: 1.08em;
-            font-style: normal;
-          }
-
-          .about-hero-description {
-            max-width: 620px;
-            margin-top: 18px;
-            margin-bottom: 20px;
-            color: rgba(0, 0, 0, 0.8);
-            font-family: "Barlow Condensed", sans-serif;
-            font-size: 14px;
-            line-height: 1.35;
-            text-align: center;
-          }
-
-          .about-hero-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #111111;
-            background: #000000;
-            color: #fee83c;
-            padding: 9px 18px;
-            border-radius: 999px;
-            font-family: "Barlow Condensed", sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 1;
-            text-decoration: none;
-            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-          }
-
-          .about-hero-button:hover {
-            background: #fee83c;
-            color: #111111;
-            transform: translateY(-2px);
-          }
-
-          @media (max-width: 900px) {
-            .about-hero {
-              height: calc(100svh - 96px);
-              min-height: 620px;
-              padding: 24px 18px;
-            }
-
-            .about-hero-title {
-              font-size: clamp(46px, 13vw, 72px);
-              line-height: 0.88;
-            }
-
-            .about-hero-description {
-              max-width: 340px;
-              font-size: 13px;
-              line-height: 1.35;
-            }
-          }
-
-          @media (max-width: 400px) {
-            .about-hero-title {
-              font-size: 44px;
-            }
-          }
-        `}
-      </style>
+    <div className="about-page bg-astravia-cream text-black overflow-hidden">
 
       {/* =====================================================
           ABOUT HERO
       ====================================================== */}
       <section className="dot-pattern about-hero">
         <div
-          ref={addReveal}
-          className="about-hero-content about-reveal"
+          className="about-hero-content scroll-reveal"
         >
           <div className="about-hero-badge">Tentang Kami</div>
 
-          <h1 className="about-hero-title">
-            <span className="about-hero-script">About</span> Us
+          <h1 className="about-hero-title page-hero-title">
+            <span className="about-hero-script page-hero-script">About</span>
+            <span>Us</span>
           </h1>
 
           <p className="about-hero-description">
@@ -315,9 +122,8 @@ export default function About() {
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-14 md:py-16">
           {/* HEADER */}
           <div
-            ref={addReveal}
             className="
-              about-reveal
+              scroll-reveal
               grid
               grid-cols-1
               md:grid-cols-[120px_1fr]
@@ -366,14 +172,13 @@ export default function About() {
               grid-cols-1
               md:grid-cols-2
               gap-10
-              md:gap-16
-              lg:gap-24
+              md:gap-8 lg:gap-16
               ml-0
-              md:ml-[120px]
+              lg:ml-[120px]
             "
           >
             {/* MISI */}
-            <div ref={addReveal} className="about-reveal">
+            <div className="scroll-reveal">
               <h3
                 className="
                   font-display
@@ -391,8 +196,7 @@ export default function About() {
                   list-decimal
                   pl-5
                   space-y-3
-                  text-xs
-                  md:text-sm
+                  text-sm md:text-base
                   leading-relaxed
                   text-black/85
                 "
@@ -406,7 +210,7 @@ export default function About() {
             </div>
 
             {/* VISI */}
-            <div ref={addReveal} className="about-reveal">
+            <div className="scroll-reveal">
               <h3
                 className="
                   font-display
@@ -421,8 +225,7 @@ export default function About() {
 
               <p
                 className="
-                  text-xs
-                  md:text-sm
+                  text-sm md:text-base
                   leading-relaxed
                   text-black/85
                   max-w-xl
@@ -445,9 +248,10 @@ export default function About() {
           {stats.map((stat, index) => (
             <div
               key={stat.number}
-              ref={addReveal}
+              data-reveal="zoom"
+              style={{ "--reveal-delay": `${index * 120}ms` }}
               className={`
-                about-reveal
+                scroll-reveal
                 px-8
                 py-10
                 md:px-10
@@ -512,9 +316,8 @@ export default function About() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[34%_66%]">
           {/* LOGO BESAR */}
           <div
-            ref={addReveal}
             className="
-              about-reveal
+              scroll-reveal
               min-h-[420px]
               md:min-h-[500px]
               lg:min-h-[560px]
@@ -543,9 +346,10 @@ export default function About() {
               {logoMeanings.map((item, index) => (
                 <div
                   key={item.title}
-                  ref={addReveal}
+                  data-reveal={index % 2 === 0 ? "left" : "right"}
+                  style={{ "--reveal-delay": `${(index % 2) * 140}ms` }}
                   className={`
-                    about-reveal
+                    scroll-reveal
                     min-h-[190px]
                     md:min-h-[220px]
                     p-7
@@ -583,9 +387,8 @@ export default function About() {
 
             {/* BOTTOM */}
             <div
-              ref={addReveal}
               className="
-                about-reveal
+                scroll-reveal
                 min-h-[190px]
                 md:min-h-[220px]
                 p-8

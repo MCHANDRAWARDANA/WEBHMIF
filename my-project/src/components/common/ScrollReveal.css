@@ -1,0 +1,68 @@
+.scroll-reveal {
+  --reveal-x: 0px;
+  --reveal-y: 72px;
+  --reveal-scale: 0.96;
+  --reveal-duration: 1050ms;
+}
+
+.scroll-reveal[data-reveal="left"] {
+  --reveal-x: -72px;
+  --reveal-y: 24px;
+  --reveal-scale: 0.98;
+}
+
+.scroll-reveal[data-reveal="right"] {
+  --reveal-x: 72px;
+  --reveal-y: 24px;
+  --reveal-scale: 0.98;
+}
+
+.scroll-reveal[data-reveal="zoom"] {
+  --reveal-y: 32px;
+  --reveal-scale: 0.88;
+}
+
+.scroll-reveal[data-motion-state="pending"] {
+  opacity: 0;
+}
+
+.scroll-reveal[data-motion-state="visible"] {
+  animation: scroll-motion-enter var(--reveal-duration) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+  will-change: transform, opacity;
+}
+
+@keyframes scroll-motion-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale));
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .scroll-reveal {
+    --reveal-y: 48px;
+    --reveal-duration: 900ms;
+  }
+
+  .scroll-reveal[data-reveal="left"] {
+    --reveal-x: -36px;
+  }
+
+  .scroll-reveal[data-reveal="right"] {
+    --reveal-x: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal[data-motion-state] {
+    opacity: 1;
+    animation: none;
+    will-change: auto;
+  }
+}

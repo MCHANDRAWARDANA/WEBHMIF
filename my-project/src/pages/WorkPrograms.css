@@ -1,0 +1,117 @@
+.work-page .program-display {
+  font-family: var(--font-display);
+}
+
+.work-page .program-script {
+  font-family: var(--font-script);
+}
+
+.work-page .program-dot-pattern {
+  background-color: #f4f2e8;
+  background-image: radial-gradient(
+              rgba(0, 0, 0, 0.15) 0.65px,
+              transparent 0.65px
+            );
+  background-size: 5px 5px;
+}
+
+@keyframes workMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.work-page .work-marquee {
+  animation: workMarquee 28s linear infinite;
+}
+
+/* HERO — disamakan dengan layout hero Berita */
+
+.work-page .work-hero {
+  width: 100%;
+  height: auto;
+  min-height: max(440px, calc(100svh - var(--site-header-height)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.work-page .work-hero-content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.work-page .work-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 30px;
+  padding: 0 16px;
+  border: 1px solid #111111;
+  border-radius: 999px;
+  background: #fee83c;
+  color: #111111;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.work-page .work-hero-description {
+  max-width: 620px;
+  margin-top: 18px;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.work-page .work-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #111111;
+  background: #000000;
+  color: #fee83c;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  min-height: 44px;
+}
+
+.work-page .work-hero-button:hover {
+  background: #fee83c;
+  color: #111111;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .work-page .work-hero {
+    height: auto;
+    min-height: max(440px, calc(100svh - var(--site-header-height)));
+    padding: 24px 18px;
+  }
+  .work-page .work-hero-description {
+    max-width: 340px;
+    font-size: var(--text-body);
+    line-height: 1.5;
+  }
+}

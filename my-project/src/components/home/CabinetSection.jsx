@@ -7,7 +7,7 @@ export default function CabinetSection() {
   return (
     <section className="bg-black text-white py-20 overflow-hidden">
       <div className="section-container">
-        <ScrollReveal className="flex items-center justify-between gap-5 mb-12">
+        <ScrollReveal variant="left" className="flex items-center justify-between gap-5 mb-12">
           <h2 className="font-serif text-4xl md:text-6xl">
             Pengurus Kabinet
             <span className="italic"> Astravia</span>
@@ -22,16 +22,18 @@ export default function CabinetSection() {
           </Link>
         </ScrollReveal>
 
-        <div className="flex gap-4 overflow-x-auto pb-5 scrollbar-none">
+        <div className="overflow-x-auto pb-5 scrollbar-none">
+          <div className="flex w-max min-w-full justify-center gap-4">
           {cabinetData.map((item, index) => (
             <ScrollReveal
               key={item.id}
-              delay={index * 80}
-              className="min-w-[180px] md:min-w-[145px] flex-shrink-0"
+              delay={index * 120}
+              variant="zoom"
+              className="w-[180px] md:w-[145px] shrink-0 text-center"
             >
               <Link
                 to={item.path}
-                className="block group cursor-pointer"
+                className="block w-full group cursor-pointer"
                 aria-label={`Buka ${item.shortName} - ${item.fullName}`}
               >
                 <div
@@ -46,9 +48,10 @@ export default function CabinetSection() {
               </Link>
             </ScrollReveal>
           ))}
+          </div>
         </div>
 
-        <div className="md:hidden mt-8">
+        <div className="md:hidden mt-8 text-center">
           <Link
             to="/departemen"
             className="inline-flex items-center gap-2 bg-astravia-yellow text-black rounded-full px-6 py-2"

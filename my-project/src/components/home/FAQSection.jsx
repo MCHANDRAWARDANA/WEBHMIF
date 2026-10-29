@@ -45,7 +45,8 @@ export default function FAQSection() {
             return (
               <ScrollReveal
                 key={faq.question}
-                delay={index * 80}
+                delay={(index % 3) * 100}
+                variant={rightSide ? "right" : "left"}
                 className={`
                   flex
                   ${rightSide ? "justify-end" : "justify-start"}

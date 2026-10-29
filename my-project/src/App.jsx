@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import "./components/common/PageHeroTitle.css";
 
+import LoadingScreen from "./components/common/LoadingScreen";
+import ScrollMotion from "./components/common/ScrollMotion";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 
@@ -36,15 +39,37 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const timeoutId = window.setTimeout(() => {
+      document.body.style.overflow = previousOverflow;
+      setIsLoading(false);
+    }, 3000);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
+
   return (
     <BrowserRouter>
+      {isLoading && <LoadingScreen />}
       {/* =====================================================
           GLOBAL WRAPPER
           - w-full       : selalu mengikuti lebar layar
           - min-w-0      : mencegah child memaksa lebar parent
           - overflow-x-hidden : MATIKAN SCROLL KANAN-KIRI
       ====================================================== */}
-      <div className="min-h-screen w-full min-w-0 overflow-x-hidden flex flex-col">
+      <div
+        className={`min-h-screen w-full min-w-0 overflow-x-hidden flex flex-col ${isLoading ? "site-content--loading" : "site-content--ready"}`}
+        inert={isLoading}
+        aria-hidden={isLoading || undefined}
+      >
         {/* =========================
             NAVBAR
         ========================== */}
@@ -54,11 +79,12 @@ export default function App() {
             SCROLL TO TOP
         ========================== */}
         <ScrollToTop />
+        <ScrollMotion ready={!isLoading} />
 
         {/* =========================
             MAIN CONTENT
         ========================== */}
-        <main className="flex-1 w-full min-w-0 max-w-full overflow-x-hidden">
+        <main id="main-content" className="site-main flex-1 w-full min-w-0 max-w-full">
           <Routes>
             {/* =========================
                 MAIN PAGE

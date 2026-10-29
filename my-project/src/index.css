@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
-
 /* =========================================================
    THEME
 ========================================================= */
@@ -26,6 +22,8 @@
 
   --font-serif: "Instrument Serif", serif;
   --font-sans: "Barlow Condensed", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-script: "Mea Culpa", cursive;
 }
 
 
@@ -34,6 +32,9 @@
 ========================================================= */
 
 :root {
+  --site-header-height: 96px;
+  --text-body: clamp(15px, 0.875rem + 0.2vw, 16px);
+  --text-hero: clamp(44px, 7vw, 96px);
   font-family: "Barlow Condensed", sans-serif;
   color: #111111;
   background: #F0F0E7;
@@ -47,6 +48,25 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--site-header-height) + 16px);
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.site-main {
+  padding-top: var(--site-header-height);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-header-height: 144px;
+  }
 }
 
 
@@ -104,8 +124,8 @@ body {
   margin-left: auto;
   margin-right: auto;
 
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: clamp(16px, 4vw, 24px);
+  padding-right: clamp(16px, 4vw, 24px);
 }
 
 
@@ -148,6 +168,39 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+@layer base {
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.font-display,
+.program-display {
+  font-family: var(--font-display);
+}
+
+.font-script,
+.program-script {
+  font-family: var(--font-script);
+}
+
 
 /* =========================================================
    HIDE HORIZONTAL SCROLLBAR
@@ -160,26 +213,5 @@ a {
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 700ms ease,
-    transform 700ms ease;
-}
-
-.scroll-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
 
 

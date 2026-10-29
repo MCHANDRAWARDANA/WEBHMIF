@@ -14,6 +14,7 @@ export default function AboutPreviewSection() {
         {/* Logo */}
         <div
           className="
+            order-1
             min-h-[320px]
             lg:min-h-[380px]
             bg-astravia-green
@@ -23,7 +24,7 @@ export default function AboutPreviewSection() {
             p-12
           "
         >
-          <ScrollReveal>
+          <ScrollReveal variant="zoom">
             <img
               src="/logo-hmif.png"
               alt="Logo HMIF"
@@ -39,6 +40,8 @@ export default function AboutPreviewSection() {
         {/* Text */}
         <div
           className="
+            order-3
+            lg:order-2
             dot-pattern
             min-h-[320px]
             lg:min-h-[380px]
@@ -50,7 +53,7 @@ export default function AboutPreviewSection() {
             py-14
           "
         >
-          <ScrollReveal>
+          <ScrollReveal variant="left">
             <span
               className="
                 inline-flex
@@ -99,7 +102,7 @@ export default function AboutPreviewSection() {
         </div>
 
         {/* Visi Misi */}
-        <div className="flex min-h-[320px] lg:min-h-[380px]">
+        <div className="scroll-reveal order-2 lg:order-3 flex min-h-16 sm:min-h-20 lg:min-h-[380px]" data-reveal="zoom">
           <div
             className="
               flex-1
@@ -109,7 +112,7 @@ export default function AboutPreviewSection() {
               justify-center
             "
           >
-            <span className="font-serif text-xl">Visi</span>
+            <span className="font-serif text-base sm:text-lg lg:text-xl">Visi</span>
           </div>
 
           <div
@@ -122,7 +125,7 @@ export default function AboutPreviewSection() {
               justify-center
             "
           >
-            <span className="font-serif text-xl">Misi</span>
+            <span className="font-serif text-base sm:text-lg lg:text-xl">Misi</span>
           </div>
         </div>
       </div>

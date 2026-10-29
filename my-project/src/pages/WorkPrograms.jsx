@@ -1,298 +1,30 @@
-import { useEffect, useRef } from "react";
+import "./WorkPrograms.css";
+import { useState } from "react";
+import ActivityPoster from "../components/common/ActivityPoster";
+import { activities, activityCategories } from "../data/activities";
 
 export default function WorkPrograms() {
-  const revealRefs = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("work-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.08,
-      },
-    );
-
-    revealRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addReveal = (el) => {
-    if (el && !revealRefs.current.includes(el)) {
-      revealRefs.current.push(el);
-    }
-  };
-
-  const categories = [
-    {
-      label: "EB",
-      bg: "#176b63",
-      text: "#ffffff",
-    },
-    {
-      label: "CCO",
-      bg: "#f4e72d",
-      text: "#111111",
-    },
-    {
-      label: "HCCB",
-      bg: "#e5b9e7",
-      text: "#111111",
-    },
-    {
-      label: "ERA",
-      bg: "#ff6b3d",
-      text: "#ffffff",
-    },
-    {
-      label: "TDI",
-      bg: "#748fe8",
-      text: "#ffffff",
-    },
-    {
-      label: "FED",
-      bg: "#ef4a7e",
-      text: "#ffffff",
-    },
-    {
-      label: "HID",
-      bg: "#dce633",
-      text: "#111111",
-    },
-  ];
-
-  const programs = [
-    {
-      category: "CCO",
-      date: "Kamis, 17 September 2026",
-      title: "Welcoming Party Informatics",
-      description:
-        "Menjadikan Himpunan Mahasiswa Teknik Informatika sebagai organisasi yang kolaboratif, inklusif, dan transformatif dengan membawa jiwa integritas pada setiap langkahnya.",
-    },
-    {
-      category: "CCO",
-      date: "Kamis, 17 September 2026",
-      title: "Welcoming Party Informatics",
-      description:
-        "Menjadikan Himpunan Mahasiswa Teknik Informatika sebagai organisasi yang kolaboratif, inklusif, dan transformatif dengan membawa jiwa integritas pada setiap langkahnya.",
-    },
-    {
-      category: "CCO",
-      date: "Kamis, 17 September 2026",
-      title: "Welcoming Party Informatics",
-      description:
-        "Menjadikan Himpunan Mahasiswa Teknik Informatika sebagai organisasi yang kolaboratif, inklusif, dan transformatif dengan membawa jiwa integritas pada setiap langkahnya.",
-    },
-    {
-      category: "CCO",
-      date: "Kamis, 17 September 2026",
-      title: "Welcoming Party Informatics",
-      description:
-        "Menjadikan Himpunan Mahasiswa Teknik Informatika sebagai organisasi yang kolaboratif, inklusif, dan transformatif dengan membawa jiwa integritas pada setiap langkahnya.",
-    },
-    {
-      category: "CCO",
-      date: "Kamis, 17 September 2026",
-      title: "Welcoming Party Informatics",
-      description:
-        "Menjadikan Himpunan Mahasiswa Teknik Informatika sebagai organisasi yang kolaboratif, inklusif, dan transformatif dengan membawa jiwa integritas pada setiap langkahnya.",
-    },
-    {
-      category: "CCO",
-      date: "Kamis, 17 September 2026",
-      title: "Welcoming Party Informatics",
-      description:
-        "Menjadikan Himpunan Mahasiswa Teknik Informatika sebagai organisasi yang kolaboratif, inklusif, dan transformatif dengan membawa jiwa integritas pada setiap langkahnya.",
-    },
-  ];
+  const [selectedCategory, setSelectedCategory] = useState("ALL");
+  const categories = activityCategories;
+  const programs = activities.filter((activity) =>
+    selectedCategory === "ALL" || activity.category === selectedCategory,
+  );
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden pt-[96px] md:pt-[144px]">
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
-          .program-display {
-            font-family: "Playfair Display", serif;
-          }
-
-          .program-script {
-            font-family: "Mea Culpa", cursive;
-          }
-
-          .program-dot-pattern {
-            background-color: #f4f2e8;
-            background-image: radial-gradient(
-              rgba(0, 0, 0, 0.15) 0.65px,
-              transparent 0.65px
-            );
-            background-size: 5px 5px;
-          }
-
-          .work-reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition:
-              opacity 0.8s ease,
-              transform 0.8s ease;
-          }
-
-          .work-visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-
-          @keyframes workMarquee {
-            from {
-              transform: translateX(0);
-            }
-
-            to {
-              transform: translateX(-50%);
-            }
-          }
-
-          .work-marquee {
-            animation: workMarquee 28s linear infinite;
-          }
-
-          /* HERO — disamakan dengan layout hero Berita */
-          .work-hero {
-            width: 100%;
-            height: calc(100svh - 144px);
-            min-height: 620px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-          }
-
-          .work-hero-content {
-            width: 100%;
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-          }
-
-          .work-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 60px;
-            height: 30px;
-            padding: 0 16px;
-            border: 1px solid #111111;
-            border-radius: 999px;
-            background: #fee83c;
-            color: #111111;
-            font-family: "Barlow Condensed", sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 1;
-            margin-bottom: 12px;
-          }
-
-          .work-hero-title {
-            margin: 0;
-            font-family: "Playfair Display", serif;
-            font-size: clamp(50px, 7vw, 96px);
-            line-height: 0.82;
-            font-weight: 400;
-            letter-spacing: -0.04em;
-            color: #111111;
-            text-align: center;
-          }
-
-          .work-hero-script {
-            font-family: "Mea Culpa", cursive;
-            font-size: 1.08em;
-            font-style: normal;
-          }
-
-          .work-hero-description {
-            max-width: 620px;
-            margin-top: 18px;
-            margin-bottom: 20px;
-            color: rgba(0, 0, 0, 0.8);
-            font-family: "Barlow Condensed", sans-serif;
-            font-size: 14px;
-            line-height: 1.35;
-            text-align: center;
-          }
-
-          .work-hero-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #111111;
-            background: #000000;
-            color: #fee83c;
-            padding: 9px 18px;
-            border-radius: 999px;
-            font-family: "Barlow Condensed", sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 1;
-            text-decoration: none;
-            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-          }
-
-          .work-hero-button:hover {
-            background: #fee83c;
-            color: #111111;
-            transform: translateY(-2px);
-          }
-
-          @media (max-width: 900px) {
-            .work-hero {
-              height: calc(100svh - 96px);
-              min-height: 620px;
-              padding: 24px 18px;
-            }
-
-            .work-hero-title {
-              font-size: clamp(46px, 13vw, 72px);
-              line-height: 0.88;
-            }
-
-            .work-hero-description {
-              max-width: 340px;
-              font-size: 13px;
-              line-height: 1.35;
-            }
-          }
-
-          @media (max-width: 400px) {
-            .work-hero-title {
-              font-size: 44px;
-            }
-          }
-        `}
-      </style>
+    <div className="work-page min-h-screen bg-black text-white overflow-hidden">
 
       {/* =====================================================
           1. HERO WORK PROGRAMS
       ====================================================== */}
       <section className="program-dot-pattern work-hero">
         <div
-          ref={addReveal}
-          className="work-hero-content work-reveal"
+          className="work-hero-content scroll-reveal"
         >
           <div className="work-hero-badge">Program Kerja</div>
 
-          <h1 className="work-hero-title">
-            <span className="work-hero-script">Program</span> Kerja <span style={{ fontStyle: "italic" }}>HMIF</span>
+          <h1 className="work-hero-title page-hero-title">
+            <span className="work-hero-script page-hero-script">Program</span>
+            <span>Kerja HMIF</span>
           </h1>
 
           <p className="work-hero-description">
@@ -349,9 +81,8 @@ export default function WorkPrograms() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div
-            ref={addReveal}
             className="
-              work-reveal
+              scroll-reveal
               flex
               flex-col
               items-center
@@ -376,17 +107,27 @@ export default function WorkPrograms() {
 
             {/* Categories */}
             <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+              <button
+                type="button"
+                className="min-h-9 rounded-full border border-white/40 px-4 py-1 text-sm"
+                style={{ backgroundColor: selectedCategory === "ALL" ? "#ffffff" : "#222222", color: selectedCategory === "ALL" ? "#111111" : "#ffffff" }}
+                aria-pressed={selectedCategory === "ALL"}
+                onClick={() => setSelectedCategory("ALL")}
+              >
+                Semua
+              </button>
               {categories.map((category) => (
                 <button
                   key={category.label}
                   type="button"
+                  aria-pressed={selectedCategory === category.label}
+                  onClick={() => setSelectedCategory(category.label)}
                   className="
                     min-w-[34px]
                     px-3
                     py-1
                     rounded-full
-                    text-[9px]
-                    md:text-[10px]
+                    text-xs md:text-sm
                     font-medium
                     border
                     border-transparent
@@ -396,6 +137,7 @@ export default function WorkPrograms() {
                   style={{
                     backgroundColor: category.bg,
                     color: category.text,
+                    boxShadow: selectedCategory === category.label ? "0 0 0 2px #ffffff" : "none",
                   }}
                 >
                   {category.label}
@@ -419,10 +161,9 @@ export default function WorkPrograms() {
           >
             {programs.map((program, index) => (
               <article
-                key={`${program.title}-${index}`}
-                ref={addReveal}
+                key={program.id}
                 className="
-                  work-reveal
+                  scroll-reveal
                   overflow-hidden
                   rounded-2xl
                   border
@@ -433,37 +174,24 @@ export default function WorkPrograms() {
                   duration-300
                 "
                 style={{
-                  transitionDelay: `${index * 80}ms`,
+                  "--reveal-delay": `${(index % 3) * 120}ms`,
                 }}
               >
                 {/* Image */}
-                <div className="relative aspect-[16/9] overflow-hidden bg-black">
-                  <img
-                    src="/wpi.jpg"
-                    alt="Welcoming Party Informatics"
-                    className="
-                      w-full
-                      h-full
-                      object-cover
-                      object-center
-                      transition-transform
-                      duration-500
-                      hover:scale-105
-                    "
-                  />
-                </div>
+                <ActivityPoster activity={program} />
 
                 {/* Content */}
                 <div className="p-5 md:p-6">
                   {/* Meta */}
-                  <div className="flex items-center gap-2 text-[9px] md:text-[10px] text-white/50">
+                  <div className="flex items-center gap-2 text-xs md:text-sm text-white/50">
                     <span className="text-astravia-yellow font-medium">
                       {program.category}
                     </span>
 
-                    <span>•</span>
-
-                    <span>{program.date}</span>
+                    {program.dateLabel && <>
+                      <span aria-hidden="true">&bull;</span>
+                      <time dateTime={program.dateStart}>{program.dateLabel}</time>
+                    </>}
                   </div>
 
                   {/* Title */}
@@ -483,8 +211,7 @@ export default function WorkPrograms() {
                   <p
                     className="
                       mt-3
-                      text-[10px]
-                      md:text-xs
+                      text-sm md:text-base
                       leading-relaxed
                       text-white/65
                     "
@@ -495,6 +222,11 @@ export default function WorkPrograms() {
               </article>
             ))}
           </div>
+          {programs.length === 0 && (
+            <p className="py-12 text-center text-white/60" role="status">
+              Belum ada program kerja pada kategori ini.
+            </p>
+          )}
         </div>
       </section>
     </div>
