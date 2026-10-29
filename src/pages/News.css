@@ -1,0 +1,489 @@
+/* ========================================================= THEME ========================================================= */
+
+.news-page {
+  --news-yellow: #FEE83C;
+  --news-cream: #F4F2E8;
+  --news-black: #050505;
+  --news-green: #176B63;
+  --news-display: "Playfair Display", serif;
+  --news-script: "Mea Culpa", cursive;
+}
+
+/* ========================================================= RESET ========================================================= */
+
+.news-page * {
+  box-sizing: border-box;
+}
+
+.news-page {
+  scroll-behavior: smooth;
+}
+
+/* ========================================================= PAGE ========================================================= */
+
+.news-page {
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+  overflow: hidden;
+  padding-top: 0;
+}
+
+/* ========================================================= TYPOGRAPHY ========================================================= */
+
+.news-page .news-display {
+  font-family: var(--news-display);
+}
+
+.news-page .news-script {
+  font-family: var(--news-script);
+}
+
+/* ========================================================= DOT PATTERN ========================================================= */
+
+.news-page .news-dot-pattern {
+  background-color: var(--news-cream);
+  background-image: radial-gradient(
+              rgba(0, 0, 0, 0.16) 0.65px,
+              transparent 0.65px
+            );
+  background-size: 5px 5px;
+}
+
+/* ========================================================= REVEAL ANIMATION ========================================================= */
+
+/* ========================================================= HERO ========================================================= */
+
+.news-page .news-hero {
+  width: 100%;
+  height: auto;
+  min-height: max(440px, calc(100svh - var(--site-header-height)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.news-page .news-hero-content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ========================================================= HERO BADGE ========================================================= */
+
+.news-page .news-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 30px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid #111111;
+  background: var(--news-yellow);
+  color: #111111;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* ========================================================= HERO TITLE ========================================================= */
+
+/* ========================================================= HERO DESCRIPTION ========================================================= */
+
+.news-page .news-hero-description {
+  max-width: 620px;
+  margin-top: 18px;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ========================================================= HERO BUTTON ========================================================= */
+
+.news-page .news-hero-button {
+  border: 1px solid #111111;
+  background: #000000;
+  color: var(--news-yellow);
+  padding: 9px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s ease,
+            background 0.2s ease,
+            color 0.2s ease;
+  min-height: 44px;
+}
+
+.news-page .news-hero-button:hover {
+  background: var(--news-yellow);
+  color: #111111;
+  transform: translateY(-2px);
+}
+
+/* ========================================================= MARQUEE ========================================================= */
+
+.news-page .news-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #000000;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.news-page .news-marquee-track {
+  display: flex;
+  min-width: max-content;
+  white-space: nowrap;
+  padding: 10px 0;
+  animation: newsMarquee 28s linear infinite;
+}
+
+.news-page .news-marquee-item {
+  flex-shrink: 0;
+  margin-right: 28px;
+  font-family: var(--news-display);
+  font-size: 17px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+@keyframes newsMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================================================= NEWS SECTION ========================================================= */
+
+.news-page .news-section {
+  background: #000000;
+  padding: 45px
+            24px
+            70px;
+}
+
+.news-page .news-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ========================================================= NEWS HEADER ========================================================= */
+
+.news-page .news-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.news-page .news-section-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--news-display);
+  font-size: clamp(
+            50px,
+            6vw,
+            80px
+          );
+  font-weight: 400;
+  line-height: 0.8;
+  font-style: italic;
+}
+
+.news-page .news-section-script {
+  font-family: var(--news-script);
+  font-style: normal;
+}
+
+/* ========================================================= FILTER BAR ========================================================= */
+
+.news-page .news-filter-bar {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.news-page .news-filter-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.news-page .news-filter-button {
+  min-width: 38px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease,
+            border-color 0.2s ease,
+            opacity 0.2s ease;
+}
+
+.news-page .news-filter-button:hover {
+  transform: translateY(-1px);
+  border-color: #ffffff;
+}
+
+.news-page .news-filter-button.active {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 1px
+            rgba(255,255,255,0.18);
+}
+
+/* ========================================================= SORT SELECT ========================================================= */
+
+.news-page .news-sort {
+  height: 40px;
+  min-width: 150px;
+  padding: 0
+            30px
+            0
+            10px;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  outline: none;
+  background: #ffffff;
+  color: #222222;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.news-page .news-sort:focus {
+  border-color: var(--news-yellow);
+}
+
+/* ========================================================= CARD GRID ========================================================= */
+
+.news-page .news-grid {
+  display: grid;
+  grid-template-columns: repeat(
+              3,
+              minmax(0, 1fr)
+            );
+  gap: 22px;
+  margin-top: 32px;
+}
+
+/* ========================================================= NEWS CARD ========================================================= */
+
+.news-page .news-card {
+  overflow: hidden;
+  border: 1px solid rgba(
+            255,
+            255,
+            255,
+            0.32
+          );
+  border-radius: 18px;
+  background: #000000;
+  transition: transform 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+}
+
+.news-page .news-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(
+              255,
+              255,
+              255,
+              0.6
+            );
+  box-shadow: 0 12px 30px
+            rgba(0,0,0,0.35);
+}
+
+/* ========================================================= IMAGE ========================================================= */
+
+/* ========================================================= IMAGE OVERLAY ========================================================= */
+
+/* ========================================================= CARD BODY ========================================================= */
+
+.news-page .news-card-body {
+  padding: 13px
+            14px
+            15px;
+}
+
+/* ========================================================= CARD META ========================================================= */
+
+.news-page .news-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(
+              255,
+              255,
+              255,
+              0.55
+            );
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.news-page .news-card-category {
+  color: var(--news-yellow);
+  font-weight: 500;
+}
+
+/* ========================================================= CARD TITLE ========================================================= */
+
+.news-page .news-card-title {
+  margin: 10px
+            0
+            0;
+  color: #ffffff;
+  font-family: var(--news-display);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+/* ========================================================= CARD DESCRIPTION ========================================================= */
+
+.news-page .news-card-description {
+  margin: 8px
+            0
+            0;
+  color: rgba(
+              255,
+              255,
+              255,
+              0.68
+            );
+  font-size: var(--text-body);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ========================================================= EMPTY STATE ========================================================= */
+
+.news-page .news-empty {
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  color: rgba(
+              255,
+              255,
+              255,
+              0.55
+            );
+  font-size: 14px;
+}
+
+/* ========================================================= TABLET ========================================================= */
+
+@media (min-width: 901px) {
+  .news-page {
+    padding-top: 0;
+  }
+  .news-page .news-hero {
+    height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .news-page .news-grid {
+    grid-template-columns: repeat(
+                2,
+                minmax(0, 1fr)
+              );
+  }
+  .news-page .news-filter-bar {
+    align-items: flex-start;
+  }
+}
+
+/* ========================================================= MOBILE ========================================================= */
+
+@media (max-width: 700px) {
+  .news-page {
+    padding-top: 0;
+  }
+  .news-page .news-hero {
+    height: auto;
+    min-height: max(440px, calc(100svh - var(--site-header-height)));
+    padding: 24px
+              18px;
+  }
+  .news-page .news-hero-description {
+    max-width: 340px;
+    font-size: var(--text-body);
+    line-height: 1.5;
+  }
+  .news-page .news-section {
+    padding: 40px
+              15px
+              55px;
+  }
+  .news-page .news-section-title {
+    font-size: 54px;
+  }
+  .news-page .news-filter-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .news-page .news-filter-list {
+    justify-content: center;
+  }
+  .news-page .news-sort {
+    width: 160px;
+  }
+  .news-page .news-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .news-page .news-card-body {
+    padding: 14px
+              15px
+              17px;
+  }
+  .news-page .news-card-title {
+    font-size: 20px;
+  }
+  .news-page .news-card-description {
+    font-size: var(--text-body);
+    -webkit-line-clamp: 5;
+  }
+}
+
+/* ========================================================= SMALL MOBILE ========================================================= */
+
+@media (max-width: 400px) {
+  .news-page .news-section-title {
+    font-size: 48px;
+  }
+  .news-page .news-filter-button {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+  .news-page .news-card-title {
+    font-size: 18px;
+  }
+}

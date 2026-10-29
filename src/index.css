@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* =========================================================
+   THEME
+========================================================= */
+
+.font-mea-culpa {
+  font-family: "Mea Culpa", cursive;
+}
+
+@theme {
+
+  --color-astravia-yellow: #FEE83C;
+  --color-astravia-white: #FEFFFF;
+  --color-astravia-blue: #839FFF;
+  --color-astravia-cream: #F0F0E7;
+  --color-astravia-orange: #FB5928;
+  --color-astravia-pink: #F15891;
+  --color-astravia-lavender: #F1BAF4;
+  --color-astravia-lime: #DBDF57;
+  --color-astravia-green: #0D4640;
+
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Barlow Condensed", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-script: "Mea Culpa", cursive;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+  --site-header-height: 96px;
+  --text-body: clamp(15px, 0.875rem + 0.2vw, 16px);
+  --text-hero: clamp(44px, 7vw, 96px);
+  font-family: "Barlow Condensed", sans-serif;
+  color: #111111;
+  background: #F0F0E7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--site-header-height) + 16px);
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.site-main {
+  padding-top: var(--site-header-height);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-header-height: 144px;
+  }
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #F0F0E7;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D4640;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FEE83C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #DBDF57;
+}
+
+
+/* =========================================================
+   DOT PATTERN
+========================================================= */
+
+.dot-pattern {
+  background-color: #F0F0E7;
+
+  background-image: radial-gradient(
+    rgba(13, 70, 64, 0.16) 1px,
+    transparent 1px
+  );
+
+  background-size: 7px 7px;
+}
+
+
+/* =========================================================
+   SECTION CONTAINER
+========================================================= */
+
+.section-container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: clamp(16px, 4vw, 24px);
+  padding-right: clamp(16px, 4vw, 24px);
+}
+
+
+@media (min-width: 768px) {
+
+  .section-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+::selection {
+  background: #FEE83C;
+  color: #000000;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   LINK / BUTTON
+========================================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.font-display,
+.program-display {
+  font-family: var(--font-display);
+}
+
+.font-script,
+.program-script {
+  font-family: var(--font-script);
+}
+
+
+/* =========================================================
+   HIDE HORIZONTAL SCROLLBAR
+========================================================= */
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+
